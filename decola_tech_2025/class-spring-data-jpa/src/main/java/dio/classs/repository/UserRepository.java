@@ -1,7 +1,7 @@
-package main.java.dio.classs.repository;
+package dio.classs.repository;
 
 import dio.classs.model.User;
-import org.springframwork.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 

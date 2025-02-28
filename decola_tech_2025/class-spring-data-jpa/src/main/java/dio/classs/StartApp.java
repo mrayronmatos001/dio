@@ -1,9 +1,10 @@
-package main.java.dio.classs;
+package dio.classs;
 
-import org.springframwork.boot.CommandLineRunner;
-
-import main.java.dio.classs.model.User;
-import main.java.dio.classs.repository.UserRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import dio.classs.model.User;
+import dio.classs.repository.UserRepository;
 
 @Component
 public class StartApp implements CommandLineRunner {

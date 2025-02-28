@@ -1,18 +1,19 @@
-package main.java.dio.classs.model;
+package dio.classs.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
-    @Column(length = 50, nullabe = false)
+    @Column(length = 50, nullable = false)
     private String name;
-    @Column(length = 20, nullabe = false)
+    @Column(length = 20, nullable = false)
     private String username;
-    @Column(length = 100, nullabe = false)
+    @Column(length = 100, nullable = false)
     private String password;
 
     public String getName() {
