@@ -2,8 +2,7 @@
 
 ```mermaid
 
-class 
-
+classDiagram
 class Feature {
     -String icon
     -Number description
