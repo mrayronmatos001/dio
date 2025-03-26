@@ -1,16 +1,31 @@
 ## class diagram
 
 ```mermaid
-
 classDiagram
+
+class User {
+    -String name
+    -Account account
+    -Feature features
+    -Card card
+    -News news
+}
+
+class Account {
+    -String number
+    -String agency
+    -Number balance
+    -Number limit
+}
+
 class Feature {
     -String icon
-    -Number description
+    -String description
 }
 
 class Card {
     -String number
-    -String limit
+    -Number limit
 }
 
 class News {
