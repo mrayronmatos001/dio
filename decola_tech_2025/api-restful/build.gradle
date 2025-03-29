@@ -1,7 +1,25 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.4'
-	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.springframework.boot' version '3.1.9'
+    id 'io.spring.dependency-management' version '1.1.3'
+}
+
+def dotenv = new File('.env')
+if (dotenv.exists()) {
+    dotenv.eachLine {
+        def (key, value) = it.split('=')
+        if (key && value) {
+            ext[key.trim()] = value.trim()
+        }
+    }
+}
+
+bootRun {
+    environment 'PGHOST', PGHOST
+    environment 'PGPORT', PGPORT
+    environment 'PGDATABASE', PGDATABASE
+    environment 'PGUSER', PGUSER
+    environment 'PGPASSWORD', PGPASSWORD
 }
 
 group = 'me.dio'
@@ -20,10 +38,18 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+	implementation 'io.github.cdimascio:dotenv-java:3.0.0'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.jar {
+	manifest {
+		attributes["Main-Class"] = "me.dio.DecolaTech2025Application"
+ 	}
 }
 
 tasks.named('test') {
